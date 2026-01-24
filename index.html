@@ -3,50 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <script type="module" src="script.js"></script>
   <title>Frontend Mentor | Contact form</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+
 </head>
 <body>
+  <main class="card">
+    <h1 class="tp tp-heading">Contact us</h1>
+    <form action="#" novalidate class="tp">
+      <div class="field">
+        <label for="firstName" class="tp tp-body-sm">First Name<span class="required" aria-hidden="true">*</span></label>
 
-  Contact Us
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          required
+          minlength="1"
+          maxlength="50"
+          pattern="[A-Za-zÀ-ÖØ-öø-ÿ\-' ]+"
+          aria-describedby="firstName-error"
+          class="tp tp-body-md"
+        >
+        <p id="firstName-error" class="error-message hint" hidden></p>
+      </div>
 
-  First Name
-  This field is required
 
-  Last Name
-  This field is required
+      <div class="field">
+        <label for="lastName" class="tp tp-body-sm">Last Name<span class="required" aria-hidden="true">*</span></label>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          minlength="1"
+          maxlength="70"
+          pattern="[A-Za-zÀ-ÖØ-öø-ÿ\-' ]+"
+          required
+          aria-describedby="lastName-error"
+          class="tp tp-body-md"
+        >
+        <p id="lastName-error" class="error-message hint" hidden></p>
+      </div>
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
 
-  Message
-  This field is required
+      <div class="field">
+        <label for="email">Email Address<span class="required tp tp-body-sm" aria-hidden="true">*</span></label>
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
+        <input
+          type="email"
+          id="email"
+          name="email"
+          minlength="5"
+          maxlength="254"
+          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+          required
+          aria-describedby="email-error"
+          class="tp tp-body-md"
+        >
+        <p id="email-error" class="error-message hint" hidden></p>
+      </div>
 
-  Submit
+      <fieldset class="field query-type-field">
+        <legend class="tp tp-body-sm">
+          Query Type <span class="required" aria-hidden="true">*</span>
+        </legend>
+        <div class="radio-row">
+          <div class="radio-option tp tp-body-md">
+            <input
+              type="radio"
+              name="queryType"
+              id="generalEnquiry"
+              value="generalEnquiry"
+              required
+              aria-describedby="queryType-error"
+            />
+            <label for="generalEnquiry">General Enquiry</label>
+          </div>
+          <div class="radio-option tp tp-body-md">
+            <input
+              type="radio"
+              name="queryType"
+              id="supportRequest"
+              value="supportRequest"
+              aria-describedby="queryType-error"
+            />
+            <label for="supportRequest">Support Request</label>
+          </div>
+        </div>
+        <p id="queryType-error" class="error-message hint" hidden></p>
+      </fieldset>
 
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <div class="field">
+        <label for="message" class="tp tp-body-sm">Message<span class="required" aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" class="tp tp-body-md" required></textarea>
+        <p id="message-error" class="error-message hint" hidden></p>
+      </div>
+      
+      
+      <div class="field agb-field">
+        <div class="agb-content">
+          <input id="agb" type="checkbox" name="agb" value="agb" aria-describedby="agb-error" required/>
+          <label for="agb" class="tp tp-body-sm">I consent to being contacted by the team<span class="required" aria-hidden="true">*</span></label>
+        </div>
+        <p id="agb-error" class="error-message hint" hidden></p>
+      </div>
+      <button type="submit" class="tp tp-body-md-bold">Submit</button>
+    </form>
+  </main>
+  <!-- Overlay -->
+  <div class="success-toast tp" role="status" hidden>
+    <div class="success-header">
+      <span class="success-icon" aria-hidden="true"></span>
+      <h3 class="tp tp-body-md-bold">Message Sent!</h3>
+    </div>
+    <p class="success-text tp-body-sm">Thanks for completing the form. We’ll be in touch soon!</p>
   </div>
 </body>
 </html>

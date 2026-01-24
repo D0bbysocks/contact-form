@@ -1,0 +1,394 @@
+/* =========================================
+   DESIGN TOKENS TEMPLATE
+   ========================================= */
+:root {
+  /* ---------- COLORS ---------- */
+  /* Basisfarben */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Red (Errors) */
+  --red: #D73C3C;
+
+  /* Graustufen */
+  --grey-900: #2A4144;
+  --grey-500: #86A2A5;
+
+  /* Grünstufen */
+  --green-600: #0C7D69;
+  --green-200: #E0F1E8;
+
+
+
+   /* ---------- TYPOGRAPHY TOKENS ---------- */
+  --font-sans: "Karla", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* Font sizes */
+  --fs-900: 2rem;     /* 32px */
+  --fs-400: 1.125rem; /* 18px */
+  --fs-300: 1rem;     /* 16px */
+
+  /* Line-heights */
+  --lh-900: 1;        /* 100% */
+  --lh-400: 1.5;      /* 150% */
+  --lh-300: 1.5;      /* 150% */
+
+  /* Letter spacing */
+  --ls-0: 0em;
+  --ls-tight: -0.0625rem; /* -1px (1px/16 = 0.0625rem) */
+
+
+  /* ---------- SPACING ---------- */
+  --space-128: 8rem;
+  --space-40: 2.5rem;
+  --space-32: 2rem;
+  --space-24: 1.5rem;
+  --space-16: 1rem;
+  --space-12: 0.75rem;
+  --space-8: 0.5rem;
+
+  /* ---------- RADIUS / SHADOWS ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+  /* ---------- BREAKPOINTS ---------- */
+  --bp-sm: 600px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}
+
+/* =========================================
+   FONT-FACE TEMPLATE
+   ========================================= */
+@font-face {
+  font-family: "Karla";
+  src: url("./assets/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* =========================================================
+   MODERN CSS RESET
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================
+   Text Presets
+   ========================================= */
+.tp {
+  font-family: var(--font-sans);
+  font-weight: var(--tp-weight, 400);
+  font-size: var(--tp-size, var(--fs-300));
+  line-height: var(--tp-lh, var(--lh-300));
+  letter-spacing: var(--tp-ls, var(--ls-0));
+}
+
+
+
+.tp-heading {
+  --tp-weight: 700;
+  --tp-size: var(--fs-900);
+  --tp-lh: var(--lh-900);
+  --tp-ls: var(--ls-tight);
+}
+
+.tp-body-md {
+  --tp-weight: 400;
+  --tp-size: var(--fs-400);
+  --tp-lh: var(--lh-400);
+  --tp-ls: var(--ls-0);
+}
+
+.tp-body-md-bold {
+  --tp-weight: 700;
+  --tp-size: var(--fs-400);
+  --tp-lh: var(--lh-400);
+  --tp-ls: var(--ls-0);
+}
+
+.tp-body-sm {
+  --tp-weight: 400;
+  --tp-size: var(--fs-300);
+  --tp-lh: var(--lh-300);
+  --tp-ls: var(--ls-0);
+}
+
+
+/* Site Styles */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--green-200);
+}
+
+.hidden {
+  display: none;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-inline-size: 0;
+}
+
+/* Card Styles */
+.card {
+  display: grid;
+  gap: var(--space-24);
+
+  width: 100%;
+  max-width: 736px;
+  margin-top: var(--space-32);
+  margin-inline: var(--space-16);
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  background-color: var(--white);
+}
+
+.card h1 {
+  color: var(--grey-900);
+}
+
+form {
+  display: grid;
+  gap: var(--space-24);
+  color: var(--grey-900);
+}
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.agb-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-16);
+  margin-right: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+.agb-field input[type="checkbox"] {
+  margin-left: 4px;
+  transform: scale(1.2);
+}
+
+/* Form Style */
+.required {
+  color: var(--green-600);
+  margin-left: var(--space-8);
+}
+
+form input:not([type="checkbox"]):not([type="radio"]),
+form textarea {
+  padding-block: var(--space-12);
+  border: 1px solid var(--grey-500);
+  border-radius: var(--radius-md);
+}
+
+.radio-option {
+  border: 1px solid var(--grey-500);
+  border-radius: var(--radius-md);
+  padding: var(--space-12) var(--space-24);
+  display: flex;
+  align-items: center;
+}
+
+
+.radio-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin-top: var(--space-8);
+}
+
+
+
+.radio-option input[type="radio"] {
+  transform: scale(1.2);
+  margin-right: var(--space-12);
+
+  color: var(--grey-500);
+}
+
+textarea {
+  resize: none;
+}
+
+#message {
+  height: 240px;
+}
+
+
+/* form btn */
+form button {
+  color: var(--white);
+  background-color: var(--green-600);
+  border-radius: var(--radius-md);
+  padding-block: var(--space-16);
+  padding-inline: var(--space-40);
+  margin-top: var(--space-16);
+}
+
+@media (min-width: 600px) {
+
+  
+  form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+ 
+  .field,
+  fieldset,
+  button {
+    grid-column: span 2;
+  }
+
+  
+  form > .field:nth-child(1),
+  form > .field:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  fieldset.field { 
+    grid-column: 1 / -1;
+  }
+
+  .radio-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-24);
+    margin-top: var(--space-8);
+  }
+
+  .radio-option {
+    min-width: 0; 
+  }
+
+  #message {
+    height: 140px;
+  }
+}
+
+
+
+/* JS UI Changes */
+
+.hint {
+  color: var(--red);
+  margin-top: 0.5rem;
+}
+
+
+.is-invalid-wrapper {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+  border-radius: var(--radius-md);
+}
+
+.query-type-field:has(#queryType-error:not([hidden])) {
+  --error-color: var(--red);
+}
+
+.query-type-field:has(#queryType-error:not([hidden])) .radio-option {
+  border-color: var(--error-color);
+}
+
+.field:has(.error-message:not([hidden])) input:not([type="radio"]):not([type="checkbox"]),
+.field:has(.error-message:not([hidden])) textarea {
+  border-color: var(--red);
+}
+
+/* success Card */
+.success-toast {
+  position: fixed;
+  top: var(--space-24);
+  left: 50%;
+  transform: translate(-50%, 8px);
+  opacity: 0;
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+
+  z-index: 1000;
+  max-width: 480px;
+  width: calc(100% - 3rem);
+  color: var(--white);
+  background-color: var(--grey-900);
+  padding: var(--space-24);
+  border-radius: var(--radius-md);
+}
+
+.success-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.success-header {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.success-icon {
+  width: 24px;
+  height: 24px;
+  background-image: url(./assets/images/icon-success-check.svg);
+  background-size: cover;
+}
